@@ -2,6 +2,7 @@ from sys import stdout as _stdout, stderr as _stderr
 
 COLOR_INFO = "\033[94m"
 COLOR_HINT = "\033[2;3m"
+COLOR_PROMPT = ""
 COLOR_SUCCESS = "\033[92m"
 COLOR_WARNING = "\033[93m"
 COLOR_ERROR = "\033[91m"
@@ -21,6 +22,15 @@ def hint(*values, sep=" ", end="\n", file=_stdout, flush=False):
     output = f"{CLEAR_LINE}{COLOR_HINT}({sep.join(map(str, values))}){COLOR_END}"
     print(output, end=end, flush=flush, file=file)
     _LAST_END[0] = end
+
+def prompt(*values, sep=" ", end=": ", file=_stdout, flush=False):
+    output = f"{CLEAR_LINE}{COLOR_PROMPT}{sep.join(map(str, values))}{COLOR_END}"
+    print(output, end=end, flush=flush, file=file)
+    _LAST_END[0] = end
+
+def prompt_input(*values, end=": ", strip=True):
+    prompt(*values, end=end)
+    return input().strip() if strip else input()
 
 def success(*values, sep=" ", end="\n", file=_stdout, flush=False, prefix="successfully "):
     output = f"{CLEAR_LINE}{COLOR_SUCCESS}{prefix}{sep.join(map(str, values))}{COLOR_END}"
