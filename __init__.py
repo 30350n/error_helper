@@ -23,7 +23,7 @@ def hint(*values, sep=" ", end="\n", file=None, flush=False):
     print(output, end=end, flush=flush, file=file)
     _LAST_END[0] = end
 
-def prompt(*values, sep=" ", end=": ", file=None, flush=False):
+def prompt(*values, sep=" ", end=":\n", file=None, flush=False):
     output = f"{CLEAR_LINE}{COLOR_PROMPT}{sep.join(map(str, values))}{COLOR_END}"
     print(output, end=end, flush=flush, file=file)
     _LAST_END[0] = end
