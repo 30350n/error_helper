@@ -1,0 +1,41 @@
+[project]
+name = "error-helper"
+version = "1.0"
+description = "Minimalistic python module to print colorful messages"
+readme = "README.md"
+requires-python = ">=3.6"
+classifiers = [
+  "Environment :: Console",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "License :: OSI Approved :: MIT License",
+  "Development Status :: 5 - Production/Stable",
+]
+license = "MIT"
+authors = [{ name = "Bobbe", email = "mail@30350n.de" }]
+
+[project.urls]
+Homepage = "https://github.com/30350n/error_helper"
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[tool.hatch.build]
+exclude = [
+  ".git",
+  ".github/",
+  ".pre-commit-config.yaml",
+]
+include = ["*.py"]
+
+[tool.hatch.build.targets.sdist]
+
+[tool.autopep8]
+aggressive = 3
+max_line_length = 96
+ignore = "E12,E13,E201,E202,E221,E241,E261,E302,E305,E401,E402"
+
+[tool.isort]
+line_length = 96
+lines_after_imports = 1
