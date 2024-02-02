@@ -29,8 +29,6 @@ exclude = [
 ]
 include = ["*.py"]
 
-[tool.hatch.build.targets.sdist]
-
 [tool.autopep8]
 aggressive = 3
 max_line_length = 96
