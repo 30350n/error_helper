@@ -1,6 +1,6 @@
 [project]
 name = "error-helper"
-version = "1.0"
+version = "1.1"
 description = "Minimalistic python module to print colorful messages"
 readme = "README.md"
 requires-python = ">=3.6"
@@ -28,6 +28,11 @@ exclude = [
   ".pre-commit-config.yaml",
 ]
 include = ["*.py"]
+
+[tool.hatch.build.targets.wheel.sources]
+"" = "error_helper"
+[tool.hatch.build.targets.sdist.sources]
+"" = "error_helper"
 
 [tool.autopep8]
 aggressive = 3
