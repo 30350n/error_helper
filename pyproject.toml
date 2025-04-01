@@ -1,6 +1,6 @@
 [project]
 name = "error-helper"
-version = "1.3"
+version = "1.4"
 description = "Minimalistic python module to print colorful messages"
 readme = "README.md"
 requires-python = ">=3.6"
@@ -29,12 +29,13 @@ typeCheckingMode = "strict"
 
 [tool.hatch.build]
 exclude = [".git", ".github/"]
-include = ["*.py"]
+include = ["*.py", "py.typed"]
 
 [tool.hatch.build.targets.wheel.sources]
 "" = "error_helper"
-[tool.hatch.build.targets.sdist.sources]
-"" = "error_helper"
+[tool.hatch.build.targets.sdist.force-include]
+"__init__.py" = "error_helper/__init__.py"
+"py.typed" = "error_helper/py.typed"
 
 [tool.ruff]
 line-length = 100

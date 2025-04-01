@@ -12,14 +12,15 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
         with:
+          persist-credentials: false
           submodules: recursive
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.10"
-      - name: Install Build Dependencies
-        run: pip install hatch
+      - name: Install uv
+        uses: astral-sh/setup-uv@v5
       - name: Build Package
-        run: hatch build
+        run: uv build --sdist --wheel
       - name: Publish To PyPI
         uses: pypa/gh-action-pypi-publish@release/v1
